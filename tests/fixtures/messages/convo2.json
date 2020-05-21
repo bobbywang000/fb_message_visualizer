@@ -1,0 +1,24 @@
+{
+    "participants": [
+        {
+            "name": "Foo Bar"
+        },
+        {
+            "name": "Quux Corge"
+        }
+    ],
+    "messages": [
+        {
+            "sender_name": "Foo Bar",
+            "timestamp_ms": 1396404010024,
+            "content": "I guess",
+            "type": "Generic"
+        },
+        {
+            "sender_name": "Baz Qux",
+            "timestamp_ms": 1396402998379,
+            "content": "loool",
+            "type": "Generic"
+        }
+    ]
+}

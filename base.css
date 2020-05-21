@@ -1,0 +1,47 @@
+body {
+    font-family: helvetica;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 80%;
+    width: 60%;
+    background: #DDD;
+    line-height: 150%;
+    /* See https://stackoverflow.com/questions/14477265/css-white-text-on-black-background-looks-bolder
+     * for the reason why we have the below lines.
+     */
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+}
+
+div {
+    transition: hover 0s;
+    border-radius: 15px;
+}
+
+p {
+    margin: 10px;
+}
+
+p.datetime {
+    font-size: small;
+}
+
+div.right {
+    float: right;
+    width: 60%;
+}
+
+div.left {
+    float: left;
+    width: 60%;
+}
+
+img.sticker {
+    max-height: 100px;
+}
+
+img, video {
+    max-width: 100%;
+}
