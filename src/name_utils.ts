@@ -8,11 +8,11 @@ export default class NameUtils {
     }
 
     // TODO: add a test
-    isOwnName(fullName): boolean {
+    isOwnName(fullName: string): boolean {
         return fullName == this.ownRealName;
     }
 
-    format(fullName): string {
+    format(fullName: string): string {
         if (this.isOwnName(fullName)) {
             return this.ownNameAlias;
         } else {
