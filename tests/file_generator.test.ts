@@ -1,6 +1,6 @@
-import { FileGenerator } from '../src/file_generator'
-import { write } from '../src/file_utils'
-import { stripIndent } from 'common-tags'
+import { FileGenerator } from '../src/file_generator';
+import { write } from '../src/file_utils';
+import { stripIndent } from 'common-tags';
 
 const messages = [
     {
@@ -21,24 +21,14 @@ const messages = [
         participantsDigest: 'af27f12b8',
         content: 'Aye',
     },
-]
-const digests = [
-    'a123abc',
-    'a456def'
-]
-const backupJsonPath = 'backup.json'
-const autogenCssPath = 'autogen.css'
-const baseCssPath = 'base.css'
-const outputFolder = 'gen'
+];
+const digests = ['a123abc', 'a456def'];
+const backupJsonPath = 'backup.json';
+const autogenCssPath = 'autogen.css';
+const baseCssPath = 'base.css';
+const outputFolder = 'gen';
 
-const fileGenerator = new FileGenerator(
-    messages,
-    digests,
-    backupJsonPath,
-    autogenCssPath,
-    baseCssPath,
-    outputFolder,
-)
+const fileGenerator = new FileGenerator(messages, digests, backupJsonPath, autogenCssPath, baseCssPath, outputFolder);
 
 const generatedBackupJson = stripIndent`
 [
@@ -66,7 +56,7 @@ const generatedBackupJson = stripIndent`
         \"participantsDigest\": \"af27f12b8\",
         \"content\": \"Aye\"
     }
-]`
+]`;
 
 const generatedCss = stripIndent`
 div.a123abc {
@@ -77,7 +67,7 @@ div.a456def {
 background: hsl(133, 90%, 40%);
 color: white;
 }
-`
+`;
 
 const generatedHtmlSegment = stripIndent`
         <html lang=\"en\">
@@ -100,31 +90,31 @@ const generatedHtmlSegment = stripIndent`
         </div>
         </body>
         </html>
-`.trim()
+`.trim();
 
 // TODO: ask Geng whether this is the idiomatic way to do partial mocks in Jest
-jest.mock('../src/file_utils')
+jest.mock('../src/file_utils');
 
 describe('writeBackupJson', () => {
     it('writes the expected JSON', () => {
-        fileGenerator.writeBackupJson()
-        expect(write).toBeCalledWith('gen/backup.json', generatedBackupJson)
-    })
-})
+        fileGenerator.writeBackupJson();
+        expect(write).toBeCalledWith('gen/backup.json', generatedBackupJson);
+    });
+});
 
 describe('writeCss', () => {
     it('writes the expected CSS', () => {
-        fileGenerator.writeCss()
-        expect(write).toBeCalledWith('gen/autogen.css', generatedCss)
-    })
-})
+        fileGenerator.writeCss();
+        expect(write).toBeCalledWith('gen/autogen.css', generatedCss);
+    });
+});
 
 describe('writeAllHtmlSegments', () => {
     it('writes the expected HTML files', () => {
-        fileGenerator.writeAllHtmlSegments()
+        fileGenerator.writeAllHtmlSegments();
         expect(write).toBeCalledWith(
             'gen/2020-05-27T07:05:03.123Z_2020-05-27T07:06:45.567Z.html',
-            generatedHtmlSegment
-        )
-    })
-})
+            generatedHtmlSegment,
+        );
+    });
+});

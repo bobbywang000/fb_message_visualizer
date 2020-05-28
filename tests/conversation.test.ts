@@ -26,11 +26,11 @@ describe('getInternalRepresentation', () => {
                 content: 'Sup',
             },
         ],
-    })
-    const nameUtils = new NameUtils('Foo Bar')
-    const messageContentFormatter = new MessageContentFormatter('./')
+    });
+    const nameUtils = new NameUtils('Foo Bar');
+    const messageContentFormatter = new MessageContentFormatter('./');
 
-    const conversation = new Conversation(jsonString, nameUtils, messageContentFormatter)
+    const conversation = new Conversation(jsonString, nameUtils, messageContentFormatter);
 
     it('generates the correct internal representation given a JSON string', () => {
         expect(conversation.getInternalRepresentation()).toEqual({
@@ -55,6 +55,6 @@ describe('getInternalRepresentation', () => {
                 },
             ],
             participantsDigest: 'af27f12b8',
-        })
-    })
-})
+        });
+    });
+});
