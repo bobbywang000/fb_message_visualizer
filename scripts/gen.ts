@@ -11,6 +11,10 @@ const options = buildOptions({
         type: 'string',
         alias: 'fb',
     },
+    outputFolder: {
+        type: 'string',
+        alias: 'out',
+    },
     backupJsonPath: {
         type: 'string',
         alias: 'backup',
@@ -25,11 +29,6 @@ const options = buildOptions({
         type: 'string',
         alias: 'base',
         default: 'base.css',
-    },
-    outputFolder: {
-        type: 'string',
-        alias: 'out',
-        default: 'gen',
     },
     writeBackupJson: {
         type: 'boolean',
