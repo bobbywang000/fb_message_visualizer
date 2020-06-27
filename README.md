@@ -32,7 +32,7 @@ $ pipenv install && pipenv shell
 $ python fix_json_encodings.py '../facebook-data'
 
 $ npm i
-$ npx ts-node scripts/gen.ts --ownName="Firstname Lastname" --fbJsonPath='../facebook-data' --outputFolder="generated"
+$ npx ts-node scripts/gen.ts --ownName="Firstname Lastname" --fbJsonPath="../facebook-data" --outputFolder="generated"
 ```
 
 ### Contributing
