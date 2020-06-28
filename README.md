@@ -5,7 +5,7 @@ This project generates HTML files that show all your Facebook conversations at a
 ![Example Convo](./docs/images/blurred_convo.png)
 
 ### Prerequisites
-- `node.js` installed on your system
+- `node.js` and `git` installed (necessary for `npm install`)
 - A local copy of your Facebook data in JSON form ([instructions](https://www.facebook.com/help/1701730696756992/?helpref=hc_fnav))
 - (optional) `python` and `pipenv` installed on your system
 
