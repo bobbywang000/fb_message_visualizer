@@ -24,7 +24,7 @@
     "eslint": "^7.1.0",
     "glob": "^7.1.6",
     "glob-fs": "^0.1.7",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "minimist-options": "^4.1.0",
     "ts-node": "^8.10.1"
   },
