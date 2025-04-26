@@ -44,7 +44,9 @@ export class FileGenerator {
     }
 
     writeAllHtmlSegments(): void {
-        splitArray(this.messages, this.MAX_MESSAGES_PER_SEGMENT).forEach((segment) => {
+        const segments = splitArray(this.messages, this.MAX_MESSAGES_PER_SEGMENT);
+        segments.forEach((segment, index) => {
+            console.log(`Generating file ${index + 1} of ${segments.length}`);
             write(this.htmlFilename(segment), this.generateHtmlSegment(this.generateMessageDivs(segment)));
         });
     }

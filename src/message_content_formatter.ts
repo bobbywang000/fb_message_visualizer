@@ -6,7 +6,14 @@ export type html = string;
 
 export class MessageContentFormatter {
     private readonly DEFAULT_BLANK_MESSAGE = '';
-    private readonly STANDARD_MESSAGE_KEYS = ['sender_name', 'timestamp_ms', 'type'];
+    private readonly DEFAULT_UNSENT_MESSAGE = 'Unsent message';
+
+    private readonly STANDARD_MESSAGE_KEYS = [
+        'sender_name',
+        'timestamp_ms',
+        'is_geoblocked_for_viewer',
+        'is_unsent_image_by_messenger_kid_parent',
+    ];
 
     private pathFromOutputDirToFbJsonRootDir: string;
     constructor(pathFromOutputDirToFbJsonRootDir: string) {
@@ -31,6 +38,12 @@ export class MessageContentFormatter {
             return this.formatGifs(message);
         } else if ('plan' in message) {
             return this.formatPlan(message);
+        } else if ('is_unsent' in message) {
+            return this.DEFAULT_UNSENT_MESSAGE;
+        } else if ('share' in message) {
+            return this.formatShare(message);
+        } else if ('bumped_message_metadata' in message) {
+            return this.formatBumpedMessage(message);
         } else if (this.isEmptyGenericMessage(message)) {
             return this.DEFAULT_BLANK_MESSAGE;
         } else {
@@ -102,5 +115,13 @@ export class MessageContentFormatter {
             arraysMatchUnordered(messageKeys, this.STANDARD_MESSAGE_KEYS.concat(['reactions'])) ||
             arraysMatchUnordered(messageKeys, this.STANDARD_MESSAGE_KEYS.concat(['ip']))
         );
+    }
+
+    private formatBumpedMessage(message): html {
+        return `Bumped message: ${message.bumped_message_metadata.bumped_message}`;
+    }
+
+    private formatShare(message): html {
+        return `Shared message: ${message.share.link}`;
     }
 }

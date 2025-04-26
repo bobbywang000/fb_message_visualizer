@@ -33,14 +33,18 @@ export const run = (opts: cliOptions): void => {
     const nameUtils = new NameUtils(opts.ownName);
     const formatter = new MessageContentFormatter(relative(opts.outputFolder, opts.fbJsonPath));
 
-    const conversations = glob(join(opts.fbJsonPath, 'messages/**/*.json')).map(
+    const conversations = glob(join(opts.fbJsonPath, 'messages/**/**/message_*.json')).map(
         formatConversation(nameUtils, formatter),
     );
+    console.log(`Found ${conversations.length} conversations`);
 
     const { messages, participantsHash } = conversations.reduce(mergeConversations, {
         messages: [],
         participantsHash: [],
     });
+
+    console.log(`Found ${messages.length} messages`);
+    debugger;
 
     messages.sort((e1, e2) => e1.epochMs - e2.epochMs);
 

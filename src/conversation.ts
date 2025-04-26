@@ -23,7 +23,9 @@ export class Conversation {
 
     constructor(jsonString: string, nameUtils: NameUtils, messageContentFormatter: MessageContentFormatter) {
         const json = JSON.parse(jsonString);
-
+        if (!json || !json.messages || !json.participants) {
+            throw new Error(`Invalid JSON format`);
+        }
         this.messages = json.messages.slice().reverse();
         this.participants = json.participants.map((participantHash) => participantHash.name);
         this.participantsDigest = this.generateParticipantsDigest(this.participants);
