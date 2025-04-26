@@ -17,7 +17,8 @@ export class MessageContentFormatter {
 
     private pathFromOutputDirToFbJsonRootDir: string;
     constructor(pathFromOutputDirToFbJsonRootDir: string) {
-        this.pathFromOutputDirToFbJsonRootDir = pathFromOutputDirToFbJsonRootDir;
+        // TODO clean up this unholy mess of path manip (what's relative? What's absolute? idk!)
+        this.pathFromOutputDirToFbJsonRootDir = pathFromOutputDirToFbJsonRootDir.replace('/your_facebook_activity', '');
     }
 
     // TODO: Add better formatting for messages which are shares/forwards
