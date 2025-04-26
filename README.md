@@ -29,9 +29,9 @@ In addition, there is a `scripts/fix_json_encodings.py` script which can be help
 ```bash
 # Optional preprocessing for poorly encoded JSON
 $ pipenv install && pipenv shell
-$ python fix_json_encodings.py '../facebook-data'
+$ python scripts/fix_json_encodings.py '../facebook-data'
 
-$ npm i
+$ npm ci
 $ npx ts-node scripts/gen.ts --ownName="Firstname Lastname" --fbJsonPath="../facebook-data" --outputFolder="generated"
 ```
 

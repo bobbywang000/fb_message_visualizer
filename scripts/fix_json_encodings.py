@@ -24,11 +24,12 @@ def reencode_file(filename):
         file.writelines(dumps(fix_text_recursive(raw_json), indent=4))
 
 def get_all_json_files(fbJsonRootDir):
-    return glob(join(fbJsonRootDir, 'messages/**/*.json'))
+    return glob(join(fbJsonRootDir, 'messages/**/**/*.json'))
 
-if (len(argv) != 1):
+if (len(argv) != 2):
     print("Usage: python fix_json_encodings.py <PATH_TO_FACEBOOK_JSON_ROOT_DIR>")
     exit(1)
 
-for json_file in get_all_json_files(argv[0]):
+for json_file in get_all_json_files(argv[1]):
+    print(f"Re-encoding {json_file}")
     reencode_file(json_file)
